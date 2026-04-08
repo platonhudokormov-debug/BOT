@@ -24,7 +24,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 
 
-     
+     x
 
     @dp.message(Command("help"))
     async def help_command(message: Message):
