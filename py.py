@@ -26,7 +26,7 @@ async def help_command(message: Message):
 # /about
 @dp.message(Command("about"))
 async def about_command(message: Message):
-    await message.answer("Я створений на Python з бібліотекою Aiogram!")
+    await message.answer("Я створений на Python з бібліотекою Aiogram учнем 10-А класу")
 
 # запуск
 async def main():
