@@ -39,8 +39,7 @@ async def show_menu(message: Message):
     )
     await message.answer("Вибери опцію:", reply_markup=keyboard)
 
-# Обробка натискань
-@dp.message(F.text==)
+
 async def handle_message(message: Message):
     text = message.text
     if text == "Привіт 👋":
