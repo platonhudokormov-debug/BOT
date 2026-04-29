@@ -1,10 +1,9 @@
 import asyncio
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, ReplyKeyboardMarkup, KeyboardButton
 from aiogram.filters import CommandStart, Command
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
-API_TOKEN = "8707422337:AAHPEwq-knwmxI_b3vjBAVbmZh461t1L0q0"
+API_TOKEN = "8217739431:AAGCgE_4_Sb2M_z2RKlhyOsXeNxdiNAhA04"
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher()
@@ -28,7 +27,7 @@ async def help_command(message: Message):
 # /about
 @dp.message(Command("about"))
 async def about_command(message: Message):
-    await message.answer("Я створений на Python з бібліотекою Aiogram учнем 10-А класу")
+    await message.answer("Я створений на Python з бібліотекою Aiogram")
 
 # /menu
 @dp.message(Command("menu"))
@@ -42,19 +41,23 @@ async def show_menu(message: Message):
     )
     await message.answer("Вибери опцію:", reply_markup=keyboard)
 
-# Обробка кнопок
-async def handle_message(message: Message):
-    text = message.text
-    if text == "Привіт 👋":
-        await message.answer("Привіт-привіт! 👋")
-    elif text == "Як справи? 😊":
-        await message.answer("Усе чудово! А в тебе?")
-    elif text == "Анекдот 🤣":
-        await message.answer("Як називається кіт-програміст? — JavaMeow!")
-    else:
-        await message.answer("Натисни одну з кнопок 😺")
+# КНОПКИ (окремі хендлери — це головний фікс)
+@dp.message(F.text == "Привіт 👋")
+async def hi_handler(message: Message):
+    await message.answer("Привіт-привіт! 👋")
 
-dp.message.register(handle_message)
+@dp.message(F.text == "Як справи? 😊")
+async def how_are_you_handler(message: Message):
+    await message.answer("Усе чудово! А в тебе?")
+
+@dp.message(F.text == "Анекдот 🤣")
+async def joke_handler(message: Message):
+    await message.answer("Як називається кіт-програміст? — JavaMeow!")
+
+# Якщо щось інше написали
+@dp.message()
+async def fallback(message: Message):
+    await message.answer("Натисни одну з кнопок 😺")
 
 # Запуск
 async def main():
