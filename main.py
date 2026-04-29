@@ -42,6 +42,9 @@ async def show_menu(message: Message):
     await message.answer("Вибери опцію:", reply_markup=keyboard)
 
 # КНОПКИ (окремі хендлери — це головний фікс)
+@dp.message(F.text.lower().contains("привіт"))
+async def hi_text_handler(message: Message):
+    await message.answer("Привіт, як справи? 😊")
 @dp.message(F.text == "Привіт 👋")
 async def hi_handler(message: Message):
     await message.answer("Привіт-привіт! 👋")
