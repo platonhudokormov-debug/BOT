@@ -72,9 +72,9 @@ async def hi_handler(message: Message):
     await message.answer("Привіт-привіт! 👋")
 
 # ТЕКСТ "привіт"
-@dp.message(F.text.lower().contains("привіт"))
+@dp.message(F.text.lower().contains("Як справи?"))
 async def hi_text_handler(message: Message):
-    await message.answer("Привіт, як справи? 😊")
+    await message.answer("Дякую нормально 😊")
 
 # fallback
 @dp.message()
