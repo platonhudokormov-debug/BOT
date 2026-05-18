@@ -71,10 +71,11 @@ if __name__ == "__main__":
 async def hi_handler(message: Message):
     await message.answer("Привіт-привіт! 👋")
 
-# ТЕКСТ "Як справи?"
-@dp.message(F.text.lower().contains("Як справи?"))
+# Відповідь на фразу "як справи"
+@dp.message(F.text.lower().contains("як справи"))
 async def hi_text_handler(message: Message):
-    await message.answer("Дякую нормально 😊")
+    await message.answer("Дякую, нормально 😊")
+
 
 # fallback
 @dp.message()
