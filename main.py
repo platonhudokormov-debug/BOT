@@ -72,12 +72,9 @@ async def hi_handler(message: Message):
     await message.answer("Привіт-привіт! 👋")
 
 # Відповідь на фразу "як справи"
-@dp.message(F.text.lower().contains("як справи"))
+@dp.message(F.text.lower().contains("як справи?"))
 async def hi_text_handler(message: Message):
     await message.answer("Дякую, нормально 😊")
 
 
-# fallback
-@dp.message()
-async def fallback(message: Message):
-    await message.answer("Натисни одну з кнопок 😺")
+
