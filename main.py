@@ -67,9 +67,13 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 # КНОПКИ
-@dp.message(F.text == "Привіт")
+from aiogram import F
+from aiogram.types import Message
+
+@dp.message(F.text.lower() == "привіт")
 async def hi_handler(message: Message):
     await message.answer("Привіт-привіт! 👋")
+
 
 # Відповідь на фразу "як справи"
 @dp.message(F.text.lower().contains("як справи?"))
