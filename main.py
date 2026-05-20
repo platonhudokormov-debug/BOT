@@ -67,7 +67,7 @@ async def main():
 if __name__ == "__main__":
     asyncio.run(main())
 # КНОПКИ
-@dp.message(F.text == "Привіт ")
+@dp.message(F.text == "Привіт")
 async def hi_handler(message: Message):
     await message.answer("Привіт-привіт! 👋")
 
