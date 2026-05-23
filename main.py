@@ -71,7 +71,7 @@ from aiogram import F
 from aiogram.types import Message
 
 # Відповідь на "привіт"
-@dp.message(F.text.lower() == "привііт")
+@dp.message(F.text.lower() == "привіт")
 async def hi_handler(message: Message):
     await message.answer("Привіт-привіт! 👋")
 
@@ -79,7 +79,7 @@ async def hi_handler(message: Message):
 # Відповідь на "як справи"
 @dp.message(F.text.lower().contains("як справи"))
 async def hi_text_handler(message: Message):
-    await message.answer("Дякую, нормально 😊")
+    await message.answer("Дякую  нормально 😊")
 
 
 
